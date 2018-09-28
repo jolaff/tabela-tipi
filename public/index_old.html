@@ -1,26 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulta NCM</title>
+
   <!-- Incluindo serviços do Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
-  <link rel="stylesheet" href="/public/css/styles.css">
-  <title>Consulta NCM</title>
-</head>
 
-<body>
-
-  <section class="busca">
-    <h5>Tabela de Incidência do Imposto sobre Produtos Industrializados (TIPI)</h5>
-    <form>
-      <input type="search" name="busca_ncm" id="busca_ncm" class="">
-    </form>
-  </section>
-
+  <!-- Adicionando Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -32,12 +23,17 @@
       messagingSenderId: "614478022920"
     };
     firebase.initializeApp(config);
-    const db = firebase.firestore()
-    db.settings({
-      timestampsInSnapshots: true
-    })
   </script>
-  <script src="tipi.js"></script>
+
+</head>
+
+<body>
+  <section class="busca">
+    <h5>Tabela de Incidência do Imposto sobre Produtos Industrializados (TIPI)</h5>
+    <form>
+      <input type="search" name="busca_ncm" id="busca_ncm" class="">
+    </form>
+  </section>
 </body>
 
 <footer>

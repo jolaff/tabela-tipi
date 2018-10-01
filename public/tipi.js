@@ -1,18 +1,15 @@
-const seção = document.querySelector("#seção");
+const resultado = document.querySelector(".grid-result");
 
 function renderNCM(doc) {
-  let li = document.createElement("li");
+  let div = document.createElement("div");
+  let seção = document.createElement("h4");
   let descrição = document.createElement("span");
-  let notas = document.createElement("span");
-
-  li.setAttribute("data-id", doc.id);
-  descrição.textContent = doc.data().descrição;
-  notas.textContent = doc.data().notas;
-
-  li.appendChild(descrição);
-  li.appendChild(notas);
-
-  seção.appendChild(li);
+  seção.innerText = doc.id;
+  descrição.innerText = doc.data().descrição;
+  div.setAttribute("class", "grid-seção");
+  div.appendChild(seção);
+  div.appendChild(descrição);
+  resultado.appendChild(div);
 }
 
 db.collection("seção")

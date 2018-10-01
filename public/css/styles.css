@@ -1,0 +1,12 @@
+.grid-result {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.grid-seção {
+  border: 1px solid #000;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}

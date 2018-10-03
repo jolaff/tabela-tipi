@@ -4,8 +4,8 @@ function renderSeção(doc) {
   let div = document.createElement('div');
   //let seção = document.createElement('h4');
   //let descrição = document.createElement('span');
-  div.innerText += `Seção ${doc.id}\n`;
-  div.innerText += doc.data().descrição;
+  div.innerText += `Seção ${doc.id}\n${doc.data().descrição}`;
+  
   div.setAttribute('class', 'grid-seção');
   //div.appendChild(seção);
   //div.appendChild(descrição);

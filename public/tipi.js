@@ -1,21 +1,37 @@
-const resultado = document.querySelector(".grid-result");
+const resultado = document.querySelector('.grid-result');
+let pos = 'seção';
+let cap = '1';
 
 function renderSeção(doc) {
-  let div = document.createElement("div");
-  //let seção = document.createElement('h4');
-  //let descrição = document.createElement('span');
+  let div = document.createElement('div');
   div.innerText += `Seção ${doc.id}\n${doc.data().descrição}`;
-  div.setAttribute("data-id", doc.id);
-  div.setAttribute("class", "grid-seção");
-  //div.appendChild(seção);
-  //div.appendChild(descrição);
+  div.setAttribute('data-id', doc.id);
+  div.setAttribute('class', 'grid-seção');
   resultado.appendChild(div);
 }
 
-db.collection("seção")
-  .get()
-  .then(snapshot => {
-    snapshot.docs.forEach(doc => {
-      renderSeção(doc);
-    });
-  });
+function renderCapitulo(doc) {
+  console.log(doc.id);
+}
+
+switch (pos) {
+  case 'seção':
+    db.collection('seção')
+      .get()
+      .then(snapshot => {
+        snapshot.docs.forEach(doc => {
+          renderSeção(doc);
+        });
+      });
+    break;
+  case 'capitulo':
+    db.collection('seção')
+      .doc(cap)
+      .collection('capitulo')
+      .get()
+      .then(snapshot => {
+        snapshot.docs.forEach(doc => {
+          renderCapitulo(doc);
+        });
+      });
+}

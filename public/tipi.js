@@ -1,7 +1,9 @@
 const resultado = document.querySelector('.grid-result');
 let seçãoDescrição = '';
 let seçãoNotas = [];
-let posição = pos => ({
+
+// Object Literals para leitura no banco firestore
+let posição = () => ({
   seção: db
     .collection('seção')
     .get()
@@ -18,18 +20,17 @@ let posição = pos => ({
     .get()
     .then(snapshot => {
       resultado.innerHTML = '';
-      let seçãoDiv = document.createElement('div');
-      seçãoDiv.innerText += seçãoDescrição;
-      seçãoDiv.innerText += seçãoNotas;
-      resultado.appendChild(seçãoDiv);
+      renderSeçãoNotas();
       snapshot.docs.forEach(doc => {
         renderCapitulo(doc);
       });
     })
 });
 
+//Render inicial da página - chamada da função principal
 posição('seção');
 
+//Função que renderiza as seções
 function renderSeção(doc) {
   let div = document.createElement('div');
   div.innerText += `Seção ${doc.id}\n${doc.data().descrição}`;
@@ -44,10 +45,18 @@ function renderSeção(doc) {
   });
 }
 
+//Função que renderiza os capítulos
 function renderCapitulo(doc) {
   let div = document.createElement('div');
   div.innerText += doc.data().titulo;
   resultado.appendChild(div);
+}
+
+//Função que renderiza título e notas da seção antes de renderizar os capítulos
+function renderSeçãoNotas() {
+  let seçãoDiv = document.createElement('div');
+  seçãoDiv.innerText += `${seçãoDescrição}\n${seçãoNotas}`;
+  resultado.appendChild(seçãoDiv);
 }
 
 /* switch (pos) {

@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Incluindo serviços do Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
-  <link rel="stylesheet" href="/public/css/styles.css">
-  <title>Consulta NCM</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Incluindo serviços do Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Consulta NCM</title>
+  </head>
 
-<body>
+  <body>
 
-  <div class="grid-container">
-    <div class="grid-header">
-      <h3>Uma maneira muito mais fácil de encontrar NCM na Tabela TIPI</h3>
-      <form>
-        <input type="search" name="busca_ncm" id="busca_ncm" class="">
-      </form>
+    <div class="grid-container">
+      <div class="grid-header">
+        <h3>Uma maneira muito mais fácil de encontrar NCM na Tabela TIPI</h3>
+        <form>
+          <input type="search" name="busca_ncm" id="busca_ncm" class="">
+        </form>
+      </div>
+      <div class="grid-result"></div>
     </div>
-    <div class="grid-result"></div>
-  </div>
 
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDSLUXOfUwusnAd4DJXt-sAr8rXG4Hv7r0",
-      authDomain: "tabela-tipi.firebaseapp.com",
-      databaseURL: "https://tabela-tipi.firebaseio.com",
-      projectId: "tabela-tipi",
-      storageBucket: "tabela-tipi.appspot.com",
-      messagingSenderId: "614478022920"
-    };
-    firebase.initializeApp(config);
-    const db = firebase.firestore()
-    db.settings({
-      timestampsInSnapshots: true
-    })
-  </script>
-  <script src="tipi.js"></script>
-</body>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDSLUXOfUwusnAd4DJXt-sAr8rXG4Hv7r0",
+        authDomain: "tabela-tipi.firebaseapp.com",
+        databaseURL: "https://tabela-tipi.firebaseio.com",
+        projectId: "tabela-tipi",
+        storageBucket: "tabela-tipi.appspot.com",
+        messagingSenderId: "614478022920"
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore()
+      db.settings({
+        timestampsInSnapshots: true
+      })
+    </script>
+    <script src="tipi.js"></script>
+  </body>
 
-<footer>
+  <footer>
 
-</footer>
+  </footer>
 
 </html>

@@ -1,8 +1,8 @@
 {
   "name": "tabela-tipi",
   "version": "1.0.0",
-  "description": "Busca NCM na tabela TIPI",
-  "main": "tipi.js",
+  "description": "Busca NCM na tabela TIPI completa",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,24 +11,24 @@
     "url": "git+https://github.com/jolaff/tabela-tipi.git"
   },
   "keywords": [
+    "NCM",
     "tabela",
-    "tipi",
-    "ncm",
-    "ipi",
+    "TIPI",
+    "IPI",
     "imposto",
-    "produto",
-    "industrializado"
+    "produtos",
+    "industrializados"
   ],
   "author": "Joel Landgraf Filho",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jolaff/tabela-tipi/issues"
   },
   "homepage": "https://github.com/jolaff/tabela-tipi#readme",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "firebase-admin": "^6.0.0",
-    "nodemon": "^1.18.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.3.3",
+    "router": "^1.3.3"
   }
 }

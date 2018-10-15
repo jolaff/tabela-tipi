@@ -1,15 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tabela TIPI</title>
+  <title>
+    Oi
+  </title>
 </head>
 
 <body>
-  <% include partials/busca.ejs %>
+  <% include ./partials/searchBar %>
+  <div id="tabela-secao">
+    <ul>
+      <% tipi.forEach((secao) => { %>
+      <li>
+        <%= secao.seção %>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
 </body>
 
 </html>

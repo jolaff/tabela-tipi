@@ -21,12 +21,12 @@ app.set('view engine', 'ejs');
 // Static files
 app.use(express.static('./public'));
 
-// Load TIPI Model
+// Load Tabela Model
 const Tabela = require('./models/tabela');
 
 // Index Route
 app.get('/', (req, res) => {
-  Tabela.find({}, (err, tabelas) => {
+  Tabela.find({ num: 1 }, (err, tabelas) => {
     if (err) throw err;
     res.render('index', { tabelas: tabelas });
   });

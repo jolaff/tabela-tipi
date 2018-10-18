@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const secaoController = require('./controllers/secaoController');
 
 const app = express();
@@ -21,13 +22,18 @@ app.set('view engine', 'ejs');
 // Static files
 app.use(express.static('./public'));
 
+//Body Parser
+app.use(bodyParser.urlencoded());
+
 // Load Tabela Model
 const Tabela = require('./models/tabela');
 
 // Index Route
 app.get('/', (req, res) => {
-  Tabela.find({ num: 1 }, (err, tabelas) => {
-    if (err) throw err;
+  Tabela.find({}).exec((err, tabelas) => {
+    if (err) {
+      throw err;
+    }
     res.render('index', { tabelas: tabelas });
   });
 });

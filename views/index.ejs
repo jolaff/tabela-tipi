@@ -12,13 +12,10 @@
 <body>
   <% include ./partials/searchBar %>
   <div id="tabela-secao">
-    <ul>
-      <% tabelas.forEach((data) => { %>
-      <li>
-        <%= data %>
-      </li>
-      <% }); %>
-    </ul>
+    <% tabelas.forEach((tabela) => { %>
+    <a href="/secao/<%= tabela.num %>">Seção
+      <%= tabela.roman %></a>
+    <% }) %>
   </div>
 </body>
 

@@ -1,9 +1,12 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const secaoController = require('./controllers/secaoController');
 
 const app = express();
+
+//Load Routes
+const rotas = require('./routes/rotas');
 
 // Database Config
 const db = require('./config/database');
@@ -19,11 +22,15 @@ mongoose
 // Set template engine
 app.set('view engine', 'ejs');
 
+// Express Layouts
+app.use(expressLayouts);
+
 // Static files
 app.use(express.static('./public'));
 
 //Body Parser
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Load Tabela Model
 const Tabela = require('./models/tabela');
@@ -37,6 +44,9 @@ app.get('/', (req, res) => {
     res.render('index', { tabelas: tabelas });
   });
 });
+
+//Use Routes
+app.use('/secao', rotas);
 
 //Port listen
 app.listen(3000);

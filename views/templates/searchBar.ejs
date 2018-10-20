@@ -1,8 +1,10 @@
 <nav>
   <div>
     <span>Comece sua busca</span>
-    <form method="get">
+    <form method="POST">
       <input type="search" name="buscaNCM" id="buscaNCM">
     </form>
   </div>
+  <a href="/">Home</a> <% if(locals.secao){ %>> Secao <%= secao.roman %><% } %>
+  <% if(locals.cap){ %>> <a href="/secao/<%= tabelas.num %>">Secao <%= tabelas.roman %></a> > Capitulo <%= cap.num %><% } %>
 </nav>

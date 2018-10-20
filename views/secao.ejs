@@ -1,6 +1,10 @@
-Notas de Seção<br>
-<% tabelas.capitulo.forEach((capitulo) => { %>
-<a href="/secao/<%= tabelas.num %>/capitulo/<%= capitulo.num %>">
+Seção <%= secao.roman %>: <%= secao.descrição %><br>
+Notas de Seção:<br>
+<ul>
+  <% secao.notas.forEach((nota) => { %><li><%= nota %></li><% }); %>
+</ul>
+<% secao.capitulo.forEach((capitulo) => { %>
+<a href="/secao/<%= secao.num %>/capitulo/<%= capitulo.num %>">
   <%= capitulo.num %>
   <%= capitulo.titulo %><br></a>
 <% }); %>

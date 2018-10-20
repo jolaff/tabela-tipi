@@ -1,5 +1,6 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -27,16 +28,28 @@ app.use(expressLayouts);
 // Static files
 app.use(express.static('./public'));
 
+// bodyParser middleware
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
 // Load Tabela Model
 const Tabela = require('./models/tabela');
 
 // Index Route
-app.get('/', (req, res) => {
+app.route('/')
+.get((req, res) => {
   Tabela.find({}).exec((err, tabelas) => {
     if (err) {
       throw err;
     }
     res.render('index', { tabelas: tabelas });
+  });
+})
+
+// Busca POST Route
+.post((req, res) => {
+  Tabela.find({$text: {$search: req.body.buscaNCM}}).exec((err, resultado) => {
+    res.send(resultado);
   });
 });
 

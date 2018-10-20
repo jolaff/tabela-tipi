@@ -8,11 +8,11 @@ const Tabela = mongoose.model('tabela');
 
 // Seção Page Route
 router.get('/:num', (req, res) => {
-  Tabela.findOne({ num: req.params.num }).exec((err, tabelas) => {
+  Tabela.findOne({ num: req.params.num }).exec((err, secao) => {
     if (err) {
       throw err;
     }
-    res.render('secao', { tabelas: tabelas });
+    res.render('secao', { secao: secao });
   });
 });
 
@@ -22,16 +22,9 @@ router.get('/:num/capitulo/:cap', (req, res) => {
     for (i in tabelas.capitulo) {
       let cap = tabelas.capitulo[i];
       if (cap.num == req.params.cap) {
-        res.render('capitulo', { cap: cap });
-      }
-    }
-    //res.render('capitulo', { tab: tabelas });
-    /*     let capitulo = tabelas.capitulo
-      .filter(cap => {
-        return (cap.num = req.params.cap);
-      })
-      .pop();
-    res.render('capitulo', { capitulo: capitulo }); */
+        res.render('capitulo', { cap: cap, tabelas: tabelas });
+      };
+    };
   });
 });
 

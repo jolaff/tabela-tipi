@@ -1,2 +1,10 @@
+Capítulo <%= cap.num %>: <%= cap.titulo %><br>
 Notas do capitulo:<br>
-<%= cap.notas_capitulo %>
+<% cap.notas_capitulo.forEach((nota_capitulo) => { %>
+    <%= nota_capitulo.texto %><% if(nota_capitulo.sub_nota.length){ %>
+    <ul>
+        <% nota_capitulo.sub_nota.forEach((sub) => { %>
+            <li><%= sub %></li>
+        <% }); %>
+    </ul><% } %>
+<% }); %>

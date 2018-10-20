@@ -1,7 +1,6 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -27,10 +26,6 @@ app.use(expressLayouts);
 
 // Static files
 app.use(express.static('./public'));
-
-//Body Parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // Load Tabela Model
 const Tabela = require('./models/tabela');

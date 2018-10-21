@@ -48,7 +48,7 @@ app.route('/')
 
 // Busca POST Route
 .post((req, res) => {
-  Tabela.find({$text: {$search: req.body.buscaNCM}}).exec((err, resultado) => {
+  Tabela.find({ $text: {$search: req.body.buscaNCM}}).exec((err, resultado) => {
     res.send(resultado);
   });
 });

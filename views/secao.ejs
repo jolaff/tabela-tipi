@@ -1,10 +1,10 @@
 Seção <%= secao.roman %>: <%= secao.descrição %><br>
 Notas de Seção:<br>
-<ul>
+<ol>
   <% secao.notas.forEach((nota) => { %><li><%= nota %></li><% }); %>
-</ul>
+</ol>
 <% secao.capitulo.forEach((capitulo) => { %>
 <a href="/secao/<%= secao.num %>/capitulo/<%= capitulo.num %>">
-  <%= capitulo.num %>
+  Capítulo <%= capitulo.num %>:
   <%= capitulo.titulo %><br></a>
 <% }); %>

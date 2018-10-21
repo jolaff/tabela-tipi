@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Create PosiçãoSchema
+const PosiçãoSchema = new Schema({
+  ncm: String,
+  descrição: String
+});
+
 // Create NotasCapSchema
 const NotasCapSchema = new Schema({
   texto: String,
@@ -11,7 +17,8 @@ const NotasCapSchema = new Schema({
 const CapituloSchema = new Schema({
   num: Number,
   titulo: String,
-  notas_capitulo: [NotasCapSchema]
+  notas_capitulo: [NotasCapSchema],
+  posição: [PosiçãoSchema]
 });
 
 // Create TabelaSchema

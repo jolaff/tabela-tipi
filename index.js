@@ -29,29 +29,34 @@ app.use(expressLayouts);
 app.use(express.static('./public'));
 
 // bodyParser middleware
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Load Tabela Model
 const Tabela = require('./models/tabela');
 
 // Index Route
-app.route('/')
-.get((req, res) => {
-  Tabela.find({}).exec((err, tabelas) => {
-    if (err) {
-      throw err;
-    }
-    res.render('index', { tabelas: tabelas });
-  });
-})
+app
+  .route('/')
+  .get((req, res) => {
+    Tabela.find({})
+      .sort({ num: 1 })
+      .exec((err, tabelas) => {
+        if (err) {
+          throw err;
+        }
+        res.render('index', { tabelas: tabelas });
+      });
+  })
 
-// Busca POST Route
-.post((req, res) => {
-  Tabela.find({ $text: {$search: req.body.buscaNCM}}).exec((err, resultado) => {
-    res.send(resultado);
+  // Busca POST Route
+  .post((req, res) => {
+    Tabela.find({ $text: { $search: req.body.buscaNCM } }).exec(
+      (err, resultado) => {
+        res.send(resultado);
+      }
+    );
   });
-});
 
 //Use Routes
 app.use('/secao', rotas);

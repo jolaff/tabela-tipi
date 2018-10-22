@@ -23,8 +23,8 @@ router.get('/:num/capitulo/:cap', (req, res) => {
       let cap = tabelas.capitulo[i];
       if (cap.num == req.params.cap) {
         res.render('capitulo', { cap: cap, tabelas: tabelas });
-      };
-    };
+      }
+    }
   });
 });
 

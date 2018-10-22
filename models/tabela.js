@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Create SubPosiçãoSchema
+const SubPosiçãoSchema = new Schema({
+  ncm: String,
+  descrição: String,
+  alíquota: String
+});
+
 // Create PosiçãoSchema
 const PosiçãoSchema = new Schema({
   ncm: String,
-  descrição: String
+  descrição: String,
+  sub_posição: [SubPosiçãoSchema]
 });
 
 // Create NotasCapSchema

@@ -1,13 +1,49 @@
-Capítulo <%= cap.num %>: <%= cap.titulo %><br>
+Capítulo
+<%= cap.num %>:
+<%= cap.titulo %><br>
 Nota:<br>
 <ol>
-    <% cap.notas_capitulo.forEach((nota_capitulo) => { %>
-        <li>
-            <%= nota_capitulo.texto %><% if(nota_capitulo.sub_nota.length){ %>
-            <ol>
-                    <% nota_capitulo.sub_nota.forEach((sub) => { %>
-                        <li><%= sub %></li>
-                    <% }); %>
-            </ol><% } %>
-        </li><% }); %>
+  <% cap.notas_capitulo.forEach((nota_capitulo) => { %>
+  <li>
+    <%= nota_capitulo.texto %>
+    <% if(nota_capitulo.sub_nota.length){ %>
+    <ol>
+      <% nota_capitulo.sub_nota.forEach((sub) => { %>
+      <li>
+        <%= sub %>
+      </li>
+      <% }); %>
+    </ol>
+    <% } %>
+  </li>
+  <% }); %>
 </ol>
+
+<% cap.posição.forEach((posição) => { %>
+<details>
+  <summary>
+    <%= posição.ncm %>:
+    <%= posição.descrição %>
+  </summary>
+  <table>
+    <tr>
+      <th>NCM</th>
+      <th>Descrição</th>
+      <th>Alíquota (%)</th>
+    </tr>
+    <% posição.sub_posição.forEach((subPos) => { %>
+    <tr>
+      <td>
+        <%= subPos.ncm %>
+      </td>
+      <td>
+        <%= subPos.descrição %>
+      </td>
+      <td>
+        <%= subPos.alíquota %>
+      </td>
+    </tr>
+    <% }); %>
+  </table>
+</details>
+<% }); %>

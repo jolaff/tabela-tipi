@@ -1,5 +1,20 @@
-<% tabelas.forEach((tabela) => { %>
-<a href="/secao/<%= tabela.num %>">Seção
-  <%= tabela.roman %>:
-  <%= tabela.descrição %></a>
-<% }); %>
+<div class="grid-result">
+  <% tabelas.forEach((seção) => { %>
+  <div>
+    <form action="/secao/<%= seção.num %>" method="get">
+      <button class="grid-seção">
+        Seção
+        <%= seção.roman %><br>
+        <% seção.descrição.forEach((descrição) => { %>
+        <%= descrição %><br>
+        <% }); %>
+      </button>
+    </form>
+    <!--     <a href="/secao/<%= seção.num %>">Seção
+      <%= seção.roman %><br>
+      <% seção.descrição.forEach((descrição) => { %>
+      <%= descrição %><br>
+      <% }); %></a> -->
+  </div>
+  <% }); %>
+</div>

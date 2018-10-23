@@ -22,15 +22,23 @@ Nota:<br>
 <% cap.posição.forEach((posição) => { %>
 <details>
   <summary>
-    <%= posição.ncm %>:
-    <%= posição.descrição %>
+    <table>
+      <tr>
+        <th>NCM</th>
+        <th>Descrição</th>
+        <th>Alíquota (%)</th>
+      </tr>
+      <tr>
+        <td>
+          <%= posição.ncm %>
+        </td>
+        <td>
+          <%= posição.descrição %>
+        </td>
+      </tr>
+    </table>
   </summary>
   <table>
-    <tr>
-      <th>NCM</th>
-      <th>Descrição</th>
-      <th>Alíquota (%)</th>
-    </tr>
     <% posição.sub_posição.forEach((subPos) => { %>
     <tr>
       <td>

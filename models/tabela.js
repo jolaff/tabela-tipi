@@ -33,7 +33,7 @@ const CapituloSchema = new Schema({
 const TabelaSchema = new Schema({
   num: Number,
   roman: String,
-  descrição: String,
+  descrição: Array,
   notas: Array,
   capitulo: [CapituloSchema]
 });

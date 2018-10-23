@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(220, 220, 220);
+}
+
+.grid-result {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.grid-seção {
+  border: 1px solid #000;
+  cursor: pointer;
+  width: 100%;
+}
+
+.grid-seção:hover {
+  background-color: rgba(100, 100, 200, 0.4);
+}

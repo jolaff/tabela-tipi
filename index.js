@@ -32,34 +32,8 @@ app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Load Tabela Model
-const Tabela = require('./models/tabela');
-
-// Index Route
-app
-  .route('/')
-  .get((req, res) => {
-    Tabela.find({})
-      .sort({ num: 1 })
-      .exec((err, tabelas) => {
-        if (err) {
-          throw err;
-        }
-        res.render('index', { tabelas: tabelas });
-      });
-  })
-
-  // Busca POST Route
-  .post((req, res) => {
-    Tabela.find({ $text: { $search: req.body.buscaNCM } }).exec(
-      (err, resultado) => {
-        res.send(resultado);
-      }
-    );
-  });
-
 //Use Routes
-app.use('/secao', rotas);
+app.use('/', rotas);
 
 //Port listen
 app.listen(3000);

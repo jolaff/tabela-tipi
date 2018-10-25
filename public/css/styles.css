@@ -1,5 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
+  font-family: 'Roboto', sans-serif;
   background-color: rgb(220, 220, 220);
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: rgb(94, 255, 0);
+  grid-gap: 0.25em;
+  margin: 0px;
+}
+
+.grid-item {
+  background-color: aquamarine;
+}
+
+.logo {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.busca {
+  grid-column: 2 / span 4;
+  grid-row: 1;
+}
+
+.navigation {
+  grid-column: 2 / span 4;
+  grid-row: 2;
 }
 
 .grid-result {

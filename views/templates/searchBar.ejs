@@ -1,10 +1,20 @@
-<nav>
-  <div>
+<div class="grid-container">
+  <div class="grid-item logo">
     <span>Comece sua busca</span>
+  </div>
+  <div class="grid-item busca">
     <form method="POST">
       <input type="search" name="buscaNCM" id="buscaNCM">
     </form>
   </div>
-  <a href="/">Home</a> <% if(locals.secao){ %>> Secao <%= secao.roman %><% } %>
-  <% if(locals.cap){ %>> <a href="/secao/<%= tabelas.num %>">Secao <%= tabelas.roman %></a> > Capitulo <%= cap.num %><% } %>
-</nav>
+  <div class="grid-item navigation">
+    <a href="/">Home</a>
+    <% if(locals.secao){ %>> Secao
+    <%= secao.roman %>
+    <% } %>
+    <% if(locals.cap){ %>> <a href="/secao/<%= tabelas.num %>">Secao
+      <%= tabelas.roman %></a> > Capitulo
+    <%= cap.num %>
+    <% } %>
+  </div>
+</div>

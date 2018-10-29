@@ -1,14 +1,18 @@
-<div class="grid-container">
-  <div class="grid-item logo">
-    <span>Comece sua busca</span>
+<div class="search-container">
+  <div class="search-item logo">
+    <hr class="hrLogo">
+    <span id="logoTabela">TABELA</span>
+    <br>
+    <span id="logoNCM">NCM</span>
+    <hr class="hrLogo">
   </div>
-  <div class="grid-item busca">
+  <div class="search-item busca">
     <form method="POST">
-      <input type="search" name="buscaNCM" id="buscaNCM">
+      <input type="search" name="buscaNCM" id="buscaNCM" placeholder="Pesquise pelo código ou descrição..." size="50"
+        aria-label="Descubra qual IPI do seu artigo pesquisando pelo código NCM ou pela descrição">
+      <button type="submit" id="buscaBtn"><i class="fa fa-search"></i></button>
     </form>
-  </div>
-  <div class="grid-item navigation">
-    <a href="/">Home</a>
+    <a href="/" id="navigation">Home</a>
     <% if(locals.secao){ %>> Secao
     <%= secao.roman %>
     <% } %>

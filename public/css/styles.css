@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Cinzel:700');
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -7,31 +8,95 @@ body {
   padding: 0;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  background-color: rgb(94, 255, 0);
-  grid-gap: 0.25em;
+.search-container {
+  background-color: rgb(140, 140, 140);
+  height: 160px;
   margin: 0px;
 }
 
-.grid-item {
-  background-color: aquamarine;
+.search-item {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .logo {
-  grid-column: 1;
-  grid-row: 1 / span 2;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  color: rgb(50, 50, 50);
+  width: 10%;
+  padding: 10px;
+}
+
+#logoTabela {
+  font-size: 1.5rem;
+}
+
+#logoNCM {
+  font-size: 3rem;
+}
+
+.hrLogo {
+  border: 0px;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(50, 50, 50, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .busca {
-  grid-column: 2 / span 4;
-  grid-row: 1;
+  padding: 10px;
 }
 
-.navigation {
-  grid-column: 2 / span 4;
-  grid-row: 2;
+#buscaNCM {
+  border-radius: 10px 0px 0px 10px;
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  border-right-style: none;
+  outline: none;
+  font-size: 2rem;
+  float: left;
+  padding: 15px;
+  width: 80%;
+  margin: 10px 0px 10px 10px;
+  background: rgb(120, 120, 120);
+  transition: 250ms;
+}
+
+#buscaNCM::placeholder {
+  color: rgba(220, 220, 220, 0.3);
+}
+
+#buscaNCM:hover,
+#buscaNCM:focus,
+#buscaNCM:active {
+  background: rgb(100, 100, 100);
+  border: 1px solid rgba(220, 220, 220, 1);
+  border-right-style: none;
+}
+
+#buscaBtn {
+  border-radius: 0px 10px 10px 0px;
+  border: 1px solid rgba(220, 220, 220, 0.6);
+  outline: none;
+  font-size: 2rem;
+  float: left;
+  padding: 15px;
+  width: 15%;
+  margin: 10px 10px 10px 0px;
+  background: rgb(100, 100, 100);
+}
+
+form {
+  content: '';
+  clear: both;
+}
+
+#navigation {
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 10px;
 }
 
 .grid-result {
